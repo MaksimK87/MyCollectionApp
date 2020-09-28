@@ -33,10 +33,8 @@ public class CommentServiceImpl implements CommentServise {
     }
 
     @Override
-    public CommentDTO addComment(CommentDTO commentDTO, long itemId, long userId) {
+    public CommentDTO addComment(CommentDTO commentDTO) {
         LocalDateTime publicationDate = LocalDateTime.now();
-        commentDTO.setItemId(itemId);
-        commentDTO.setUserId(userId);
         Comment comment = commentMapper.toEntity(commentDTO);
         comment.setPublicationDate(publicationDate);
         comment = commentRepository.save(comment);

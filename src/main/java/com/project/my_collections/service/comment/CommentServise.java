@@ -8,5 +8,5 @@ public interface CommentServise {
 
     List<CommentDTO> getComments(long itemId);
 
-    CommentDTO addComment(CommentDTO commentDTO, long itemId,long userId);
+    CommentDTO addComment(CommentDTO commentDTO);
 }

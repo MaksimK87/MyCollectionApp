@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import javax.validation.Valid;
-import java.net.URI;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,15 +30,20 @@ public class AdminController {
         return ResponseEntity.ok(userService.allUsers());
     }
 
+    @GetMapping("/admin/users/{id}")
+    ResponseEntity<UserDTO> getUser(@PathVariable Long id) {
+        logger.info("Find user by id: " + id);
+        return new ResponseEntity(userService.findUserById(id), HttpStatus.OK);
+    }
+
     @PostMapping("/admin/users")
     ResponseEntity<UserDTO> saveAdmin(@Valid @RequestBody UserDTO userDTO) {
+
         userDTO.setRoles(Collections.singleton(new Role(2L, "ROLE_ADMIN")));
         logger.info("Save new admin: " + userDTO);
         UserDTO user = userService.saveUser(userDTO);
 
-        URI uri = MvcUriComponentsBuilder.fromController(getClass()).path("/{id}").buildAndExpand(userDTO.getId()).toUri();
-
-        return ResponseEntity.created(uri).body(user);
+        return new ResponseEntity(user, HttpStatus.CREATED);
     }
 
     @PutMapping("/admin/users")
@@ -85,14 +88,8 @@ public class AdminController {
             logger.info("Unblock user: " + userDTO);
         }
         userService.update(userDTO);
-        return new ResponseEntity<>(userService.findUserById(id), HttpStatus.OK);
-
-    }
-
-    @GetMapping("/admin/users/{id}")
-    ResponseEntity<UserDTO> getUser(@PathVariable Long id) {
-        logger.info("Find user by id: " + id);
         return new ResponseEntity(userService.findUserById(id), HttpStatus.OK);
+
     }
 
     @DeleteMapping("/admin/users/{id}")

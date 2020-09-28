@@ -14,13 +14,19 @@ import java.util.List;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
-//@RequestMapping("")
 public class CollectionController {
 
     private static final Logger logger = LogManager.getLogger(CollectionController.class);
 
     @Autowired
     private CollectionService collectionService;
+
+    @GetMapping("/collections")
+    ResponseEntity<List<CollectionDTO>> getBiggestCollections() {
+        logger.info("Get biggest collections");
+        return ResponseEntity.ok(collectionService.getBiggestCollection());
+    }
+
 
     @GetMapping("/users/{userId}/collections")
     ResponseEntity<List<CollectionDTO>> getAllCollectionsForUser(@PathVariable long userId) {
@@ -29,7 +35,7 @@ public class CollectionController {
     }
 
     @GetMapping("/collections/{collectionId}")
-    ResponseEntity<CollectionDTO> getCollectionForUser(@PathVariable long collectionId) {
+    ResponseEntity<CollectionDTO> getCollectionById(@PathVariable long collectionId) {
         logger.info("Get collection id: " + collectionId);
 
         return ResponseEntity.ok(collectionService.getCollection(collectionId));

@@ -52,14 +52,13 @@ public class Like {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Like like = (Like) o;
-        return id == like.id &&
-                Objects.equals(item, like.item) &&
+        return Objects.equals(item, like.item) &&
                 Objects.equals(user, like.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, item, user);
+        return Objects.hash(item, user);
     }
 
     @Override

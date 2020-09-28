@@ -6,26 +6,34 @@ import java.util.List;
 public class CollectionDTO {
 
     private long id;
+
     @NotNull
     private String name;
+
     @NotNull
     private String description;
+
     private String image;
+
     @NotNull
     private String type;
 
     private String customNumberField1;
     private String customNumberField2;
     private String customNumberField3;
+
     private String customDateField1;
     private String customDateField2;
     private String customDateField3;
+
     private String customTextField1;
     private String customTextField2;
     private String customTextField3;
+
     private String customLineField1;
     private String customLineField2;
     private String customLineField3;
+
     private String customBooleanField1;
     private String customBooleanField2;
     private String customBooleanField3;

@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/collection")
 public class ItemController {
 
-    private static final Logger logger = LogManager.getLogger(CollectionController.class);
+    private static final Logger logger = LogManager.getLogger(ItemController.class);
 
     @Autowired
     private ItemService itemService;

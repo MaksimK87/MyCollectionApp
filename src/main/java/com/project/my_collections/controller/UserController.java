@@ -25,13 +25,6 @@ public class UserController {
         return ResponseEntity.ok(userService.findUserById(id));
     }
 
-    @PostMapping("/registration")
-    ResponseEntity saveUser(@Valid @RequestBody UserDTO userDTO) {
-
-        logger.info("Save new user: " + userDTO);
-
-        return ResponseEntity.ok(userService.saveUser(userDTO));
-    }
 
     @PutMapping("/users")
     ResponseEntity<UserDTO> updateUser(@Valid @RequestBody UserDTO userDTO) {

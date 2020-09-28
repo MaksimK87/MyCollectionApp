@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "collection")
-public class Collection {
+public class MyCollection {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,13 +57,11 @@ public class Collection {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "collection", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH,CascadeType.REMOVE})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "collection", cascade = {CascadeType.ALL})
     List<Item> items;
 
-    public Collection() {
+    public MyCollection() {
     }
-
 
     public long getId() {
         return id;
@@ -245,9 +243,8 @@ public class Collection {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Collection that = (Collection) o;
-        return id == that.id &&
-                name.equals(that.name) &&
+        MyCollection that = (MyCollection) o;
+        return Objects.equals(name, that.name) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(image, that.image) &&
                 type == that.type &&
@@ -265,14 +262,12 @@ public class Collection {
                 Objects.equals(customLineField3, that.customLineField3) &&
                 Objects.equals(customBooleanField1, that.customBooleanField1) &&
                 Objects.equals(customBooleanField2, that.customBooleanField2) &&
-                Objects.equals(customBooleanField3, that.customBooleanField3) &&
-                Objects.equals(user, that.user) &&
-                Objects.equals(items, that.items);
+                Objects.equals(customBooleanField3, that.customBooleanField3);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, image, type, customNumberField1, customNumberField2, customNumberField3, customDateField1, customDateField2, customDateField3, customTextField1, customTextField2, customTextField3, customLineField1, customLineField2, customLineField3, customBooleanField1, customBooleanField2, customBooleanField3, user, items);
+        return Objects.hash(name, description, image, type, customNumberField1, customNumberField2, customNumberField3, customDateField1, customDateField2, customDateField3, customTextField1, customTextField2, customTextField3, customLineField1, customLineField2, customLineField3, customBooleanField1, customBooleanField2, customBooleanField3);
     }
 
     @Override

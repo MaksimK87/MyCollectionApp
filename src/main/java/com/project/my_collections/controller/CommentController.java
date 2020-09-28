@@ -18,16 +18,7 @@ public class CommentController {
     private static final Logger logger = LogManager.getLogger(CommentController.class);
 
     @Autowired
-    CommentServise commentServise;
-
-    @PostMapping("/{itemId}/{userId}")
-    ResponseEntity<CommentDTO> addComment(@RequestBody CommentDTO commentDTO,
-                                          @PathVariable long itemId, @PathVariable long userId) {
-
-        logger.info("add new comment: " + commentDTO + "\n" + " for item id: "
-                + itemId + " from user id: " + userId);
-        return ResponseEntity.ok(commentServise.addComment(commentDTO, itemId, userId));
-    }
+    private CommentServise commentServise;
 
     @GetMapping("/{itemId}")
     ResponseEntity<List<CommentDTO>> getAllComment(@PathVariable long itemId) {

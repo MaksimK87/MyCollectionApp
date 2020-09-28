@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 public class CommentDTO {
 
     private long id;
+
     @NotNull
     private String commentText;
     private String publicationDate;

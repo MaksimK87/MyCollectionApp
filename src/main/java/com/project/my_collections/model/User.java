@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -24,7 +25,7 @@ public class User implements UserDetails {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Collection> collections;
+    private List<MyCollection> collections;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
             CascadeType.DETACH, CascadeType.REFRESH})
@@ -82,11 +83,11 @@ public class User implements UserDetails {
         isBlocked = blocked;
     }
 
-    public List<Collection> getCollections() {
+    public List<MyCollection> getCollections() {
         return collections;
     }
 
-    public void setCollections(List<Collection> collections) {
+    public void setCollections(List<MyCollection> collections) {
         this.collections = collections;
     }
 
@@ -115,7 +116,7 @@ public class User implements UserDetails {
     }
 
     @Override
-    public java.util.Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
     }
 
@@ -154,20 +155,15 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id &&
-                isBlocked == user.isBlocked &&
-                name.equals(user.name) &&
-                email.equals(user.email) &&
-                password.equals(user.password) &&
-                Objects.equals(collections, user.collections) &&
-                Objects.equals(comments, user.comments) &&
-                Objects.equals(roles, user.roles) &&
-                Objects.equals(likes, user.likes);
+        return isBlocked == user.isBlocked &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, password, isBlocked, collections, comments, roles, likes);
+        return Objects.hash(name, email, password, isBlocked);
     }
 
     @Override

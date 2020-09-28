@@ -1,5 +1,7 @@
 package com.project.my_collections.service.transfer.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.project.my_collections.model.Role;
 
 import javax.validation.constraints.Email;
@@ -14,9 +16,11 @@ public class UserDTO {
     @Size(min = 3, message = "name must be more than 3 symbols")
     private String name;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Size(min = 2, message = "password must be more than 3 symbols")
     private String password;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Size(min = 2, message = "password must be more than 3 symbols")
     private String passwordConfirm;
 

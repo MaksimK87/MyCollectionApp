@@ -1,0 +1,36 @@
+2020-09-28 14:57:12,946 INFO o.h.v.i.u.Version [background-preinit] HV000001: Hibernate Validator 6.1.0.Final
+2020-09-28 14:57:13,038 INFO o.s.b.StartupInfoLogger [main] Starting MyCollectionsApplicationTests on Comp-ÏÊ with PID 4028 (started by Comp in D:\Java course\Companies\ITransition\final project\my_collections\my_collections)
+2020-09-28 14:57:13,048 DEBUG o.s.b.StartupInfoLogger [main] Running with Spring Boot v2.3.3.RELEASE, Spring v5.2.8.RELEASE
+2020-09-28 14:57:13,053 INFO o.s.b.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-09-28 14:57:20,870 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-09-28 14:57:21,280 INFO o.s.d.r.c.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 386ms. Found 7 JPA repository interfaces.
+2020-09-28 14:57:24,074 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2020-09-28 14:57:26,013 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-09-28 14:57:26,398 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-09-28 14:57:27,068 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-09-28 14:57:27,678 INFO o.h.a.c.r.j.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-09-28 14:57:28,105 INFO o.h.d.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-09-28 14:57:33,080 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-09-28 14:57:33,109 INFO o.s.o.j.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-28 14:57:34,391 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-09-28 14:57:40,443 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'clientInboundChannelExecutor'
+2020-09-28 14:57:40,517 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'clientOutboundChannelExecutor'
+2020-09-28 14:57:40,592 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'messageBrokerTaskScheduler'
+2020-09-28 14:57:41,651 INFO o.s.s.w.DefaultSecurityFilterChain [main] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2f9d47a3, org.springframework.security.web.context.SecurityContextPersistenceFilter@58ec3e8b, org.springframework.security.web.header.HeaderWriterFilter@24caa80, org.springframework.web.filter.CorsFilter@7d7d7b1a, org.springframework.security.web.authentication.logout.LogoutFilter@4807b2b7, com.project.my_collections.config.jwt.AuthTokenFilter@62d5617, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2086f336, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e93f91d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@67836d4, org.springframework.security.web.session.SessionManagementFilter@69860811, org.springframework.security.web.access.ExceptionTranslationFilter@2226fd2b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6e200307]
+2020-09-28 14:57:41,713 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'brokerChannelExecutor'
+2020-09-28 14:57:47,146 INFO o.s.c.l.CompositeLog [main] Starting...
+2020-09-28 14:57:47,147 INFO o.s.c.l.CompositeLog [main] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-09-28 14:57:47,149 INFO o.s.c.l.CompositeLog [main] Started.
+2020-09-28 14:57:47,151 INFO o.s.d.r.c.DeferredRepositoryInitializationListener [main] Triggering deferred initialization of Spring Data repositories…
+2020-09-28 14:57:49,242 INFO o.s.d.r.c.DeferredRepositoryInitializationListener [main] Spring Data repositories initialized!
+2020-09-28 14:57:49,268 INFO o.s.b.StartupInfoLogger [main] Started MyCollectionsApplicationTests in 38.851 seconds (JVM running for 44.073)
+2020-09-28 14:57:50,718 INFO o.s.c.l.CompositeLog [SpringContextShutdownHook] Stopping...
+2020-09-28 14:57:50,719 INFO o.s.c.l.CompositeLog [SpringContextShutdownHook] BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-09-28 14:57:50,720 INFO o.s.c.l.CompositeLog [SpringContextShutdownHook] Stopped.
+2020-09-28 14:57:50,737 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'brokerChannelExecutor'
+2020-09-28 14:57:50,738 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2020-09-28 14:57:50,768 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2020-09-28 14:57:50,770 INFO o.s.s.c.ExecutorConfigurationSupport [SpringContextShutdownHook] Shutting down ExecutorService 'clientInboundChannelExecutor'
+2020-09-28 14:57:50,783 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-28 14:57:50,787 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-09-28 14:57:50,849 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.

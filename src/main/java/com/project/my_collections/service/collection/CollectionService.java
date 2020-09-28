@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CollectionService {
 
-    CollectionDTO saveCollection(CollectionDTO collectionDTO,long userId);
+    CollectionDTO saveCollection(CollectionDTO collectionDTO, long userId);
 
     void updateCollection(CollectionDTO collectionDTO);
 

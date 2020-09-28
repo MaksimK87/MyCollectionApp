@@ -52,21 +52,11 @@ public class Tag {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tag tag = (Tag) o;
-        return id == tag.id &&
-                Objects.equals(tagName, tag.tagName) &&
-                Objects.equals(items, tag.items);
+        return Objects.equals(tagName, tag.tagName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tagName, items);
-    }
-
-    @Override
-    public String toString() {
-        return "Tag{" +
-                "id=" + id +
-                ", tagName='" + tagName + '\'' +
-                '}';
+        return Objects.hash(tagName);
     }
 }

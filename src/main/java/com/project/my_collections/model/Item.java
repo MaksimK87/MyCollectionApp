@@ -57,7 +57,7 @@ public class Item {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "collection_id")
-    private Collection collection;
+    private MyCollection collection;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "item", cascade = {CascadeType.ALL})
     private Set<Like> likes;
@@ -212,11 +212,11 @@ public class Item {
         this.tags = tags;
     }
 
-    public Collection getCollection() {
+    public MyCollection getCollection() {
         return collection;
     }
 
-    public void setCollection(Collection collection) {
+    public void setCollection(MyCollection collection) {
         this.collection = collection;
     }
 
@@ -241,8 +241,7 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return id == item.id &&
-                customNumberField1 == item.customNumberField1 &&
+        return customNumberField1 == item.customNumberField1 &&
                 customNumberField2 == item.customNumberField2 &&
                 customNumberField3 == item.customNumberField3 &&
                 customBooleanField1 == item.customBooleanField1 &&
@@ -257,16 +256,12 @@ public class Item {
                 Objects.equals(customLineField3, item.customLineField3) &&
                 Objects.equals(customDateField1, item.customDateField1) &&
                 Objects.equals(customDateField2, item.customDateField2) &&
-                Objects.equals(customDateField3, item.customDateField3) &&
-                Objects.equals(tags, item.tags) &&
-                Objects.equals(collection, item.collection) &&
-                Objects.equals(likes, item.likes) &&
-                Objects.equals(comments, item.comments);
+                Objects.equals(customDateField3, item.customDateField3);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, customNumberField1, customNumberField2, customNumberField3, customTextField1, customTextField2, customTextField3, customLineField1, customLineField2, customLineField3, customBooleanField1, customBooleanField2, customBooleanField3, customDateField1, customDateField2, customDateField3, tags, collection, likes, comments);
+        return Objects.hash(name, customNumberField1, customNumberField2, customNumberField3, customTextField1, customTextField2, customTextField3, customLineField1, customLineField2, customLineField3, customBooleanField1, customBooleanField2, customBooleanField3, customDateField1, customDateField2, customDateField3);
     }
 
     @Override

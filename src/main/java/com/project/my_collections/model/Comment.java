@@ -16,7 +16,6 @@ public class Comment {
     @Column(name = "comment_text")
     private String commentText;
 
-    // @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "publication_date")
     private LocalDateTime publicationDate;
 
@@ -80,16 +79,13 @@ public class Comment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return id == comment.id &&
-                Objects.equals(commentText, comment.commentText) &&
-                Objects.equals(publicationDate, comment.publicationDate) &&
-                Objects.equals(user, comment.user) &&
-                Objects.equals(item, comment.item);
+        return Objects.equals(commentText, comment.commentText) &&
+                Objects.equals(publicationDate, comment.publicationDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, commentText, publicationDate, user, item);
+        return Objects.hash(commentText, publicationDate);
     }
 
     @Override

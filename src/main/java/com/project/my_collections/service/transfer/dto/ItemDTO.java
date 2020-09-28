@@ -1,6 +1,5 @@
 package com.project.my_collections.service.transfer.dto;
 
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Set;
